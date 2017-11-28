@@ -3,8 +3,12 @@ var Config = require('./config.json');
 var client = new Twitter(Config);
 var fs = require('fs');
 var sleep = require('sleep');
+var argv = require('optimist')
+    .default('input', 'data.txt')
+    .default('clear', false)
+    .argv;
 
-if (false) {
+if (argv.clear) {
   fs.writeFileSync('136.txt', "", "utf8", (err) => console.log(err));
   fs.writeFileSync('401.txt', "", "utf8", (err) => console.log(err));
   fs.writeFileSync('404.txt', "", "utf8", (err) => console.log(err));
@@ -46,6 +50,6 @@ var explorer = function(i, max, users) {
   });
 }
 
-var list = fs.readFileSync('data4.txt', 'utf8');
+var list = fs.readFileSync(argv.input, 'utf8');
 list = list.split('\n');
 explorer(0, list.length, list);
