@@ -10,4 +10,4 @@ var filtered = list.filter(function (x, i, self) {
   return excludeList.indexOf(x) < 0;
 });
 
-fs.writeFileSync('exclude.txt', filtered.join('\n'), 'utf8');
+fs.writeFileSync('data.txt', filtered.join('\n'), 'utf8');
