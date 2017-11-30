@@ -29,7 +29,7 @@ var explorer = function(next_cursor) {
       var now = new Date();
       var date = new Date(parseInt(response.headers['x-rate-limit-reset']) * 1000);
       console.log("limit: " + response.headers['x-rate-limit-limit'] + ", reset: " + response.headers['x-rate-limit-reset']);
-      console.log(" [Sleep]" + now.toLocaleDateString() + " " + now.toLocaleTimeString() + "=>" + date.toLocaleDateString() + " " + date.toLocaleTimeString())
+      console.log(" [Sleep] " + now.toLocaleDateString() + " " + now.toLocaleTimeString() + " => " + date.toLocaleDateString() + " " + date.toLocaleTimeString())
       sleep.sleep(limit);
       explorer(next_cursor);
       return;
