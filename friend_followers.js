@@ -21,6 +21,9 @@ var explorer = function(next_cursor, index, screenNames) {
   }
   var screenName = screenNames[index];
   var params = {count:200};
+  if (screenName) {
+    params['screen_name'] = screenName;
+  }
   if (next_cursor) {
     params['cursor'] = next_cursor;
   }
